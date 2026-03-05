@@ -240,6 +240,41 @@ That's it. The agent fires `clay fire <name> --data '...' --wait` and receives t
 
 ---
 
+## Agent Skills
+
+The repo ships 7 GTM-focused Agent Skills (`SKILL.md` files) — one per use case. Each teaches an AI agent exactly how to use the CLI for that workflow.
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-enrich-lead/` | Enrich a LinkedIn profile — name, title, company, email |
+| `skills/clay-find-email/` | Waterfall email finding + validation |
+| `skills/clay-company-research/` | Company enrichment — size, funding, tech stack, news |
+| `skills/clay-icp-score/` | ICP qualification scoring — fit tier + signal breakdown |
+| `skills/clay-job-change/` | Job change + hiring signal detection |
+| `skills/clay-outbound-prep/` | Full outbound prep — enrich + email + score + AI first-line |
+| `skills/clay-account-research/` | ABM account research — buying committee + engagement strategy |
+
+### Install all skills at once
+
+```bash
+npx skills add https://github.com/bcharleson/clay-cli
+```
+
+### Install a specific skill
+
+```bash
+npx skills add https://github.com/bcharleson/clay-cli/tree/main/skills/clay-outbound-prep
+```
+
+### OpenClaw agent setup
+
+```bash
+# Symlink all skills (stays in sync with repo)
+ln -s $(pwd)/skills/clay-* ~/.openclaw/skills/
+```
+
+---
+
 ## Development
 
 ```bash

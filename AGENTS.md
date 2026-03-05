@@ -224,6 +224,24 @@ The human user must configure the Clay table:
    - Body: Map the enriched columns you want returned to the agent
 6. The callback listener receives the POST and returns it to the waiting `clay fire --wait` call
 
+## GTM Use Case Skills
+
+Each skill is a detailed `SKILL.md` in the `skills/` folder:
+
+| Skill | When to use |
+|-------|-------------|
+| `clay-enrich-lead` | You have a LinkedIn URL and need full profile data |
+| `clay-find-email` | You need a verified work email before outreach |
+| `clay-company-research` | You need to qualify or research a target account |
+| `clay-icp-score` | You need to know if a lead is worth pursuing |
+| `clay-job-change` | You want to catch job change buying signals |
+| `clay-outbound-prep` | Full prep pipeline — enrich + email + score + first-line in one shot |
+| `clay-account-research` | ABM — buying committee, triggers, engagement strategy |
+
+Install all skills: `npx skills add https://github.com/bcharleson/clay-cli`
+
+---
+
 ## MCP Configuration
 
 Add to Claude Desktop, Cursor, or VS Code MCP settings:
