@@ -277,7 +277,7 @@ Each skill is a detailed `SKILL.md` in the `skills/` folder with full command ex
 | `clay-expansion-signals` | Detect upsell readiness — growth, usage limits, funding |
 | `clay-renewal-research` | Pre-renewal intelligence — health, risk, champion stability |
 
-Install all skills: `npx skills add https://github.com/bcharleson/clay-cli`
+Install all skills: `npx skills add https://github.com/bcharleson/clay-gtm-cli`
 
 ---
 

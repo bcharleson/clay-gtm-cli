@@ -303,13 +303,13 @@ The repo ships **21 GTM Engineer skills** (`SKILL.md` files) covering every stag
 ### Install all skills at once
 
 ```bash
-npx skills add https://github.com/bcharleson/clay-cli
+npx skills add https://github.com/bcharleson/clay-gtm-cli
 ```
 
 ### Install a specific skill
 
 ```bash
-npx skills add https://github.com/bcharleson/clay-cli/tree/main/skills/clay-outbound-prep
+npx skills add https://github.com/bcharleson/clay-gtm-cli/tree/main/skills/clay-outbound-prep
 ```
 
 ### OpenClaw agent setup
@@ -324,7 +324,7 @@ ln -s $(pwd)/skills/clay-* ~/.openclaw/skills/
 ## Development
 
 ```bash
-git clone https://github.com/bcharleson/clay-cli.git
+git clone https://github.com/bcharleson/clay-gtm-cli.git
 cd clay-gtm-cli
 npm install
 npm run dev -- tables list

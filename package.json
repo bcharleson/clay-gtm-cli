@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcharleson/clay-cli.git"
+    "url": "https://github.com/bcharleson/clay-gtm-cli.git"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
