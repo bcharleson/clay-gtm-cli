@@ -242,17 +242,63 @@ That's it. The agent fires `clay fire <name> --data '...' --wait` and receives t
 
 ## Agent Skills
 
-The repo ships 7 GTM-focused Agent Skills (`SKILL.md` files) — one per use case. Each teaches an AI agent exactly how to use the CLI for that workflow.
+The repo ships **21 GTM Engineer skills** (`SKILL.md` files) covering every stage of the revenue lifecycle — prospecting, enrichment, personalization, routing, reply handling, CRM ops, and post-sale expansion.
+
+### Prospecting & List Building
 
 | Skill | Use Case |
 |-------|----------|
-| `skills/clay-enrich-lead/` | Enrich a LinkedIn profile — name, title, company, email |
-| `skills/clay-find-email/` | Waterfall email finding + validation |
-| `skills/clay-company-research/` | Company enrichment — size, funding, tech stack, news |
-| `skills/clay-icp-score/` | ICP qualification scoring — fit tier + signal breakdown |
-| `skills/clay-job-change/` | Job change + hiring signal detection |
-| `skills/clay-outbound-prep/` | Full outbound prep — enrich + email + score + AI first-line |
-| `skills/clay-account-research/` | ABM account research — buying committee + engagement strategy |
+| `skills/clay-prospect-list/` | Build targeted prospect lists from ICP filters (industry, size, title, tech, funding) |
+| `skills/clay-lookalike/` | Find lookalike prospects from your best customer domains |
+| `skills/clay-champion-track/` | Monitor champions who leave customers → instant warm outreach at new company |
+
+### Lead Enrichment
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-enrich-lead/` | Enrich a LinkedIn profile — name, title, company, bio |
+| `skills/clay-find-email/` | Waterfall email finding across Hunter/Apollo/Clearbit + validation |
+| `skills/clay-company-research/` | Company enrichment — size, funding, tech stack, hiring, news |
+| `skills/clay-outbound-prep/` | Full pipeline in one shot — enrich + email + ICP score + AI first-line |
+
+### Signals & Triggers
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-icp-score/` | ICP qualification scoring — fit tier (A/B/C/D) + signal breakdown |
+| `skills/clay-job-change/` | Job change + hiring signal detection — highest-intent buying trigger |
+| `skills/clay-intent-data/` | G2/Bombora intent signals — who is researching your category right now |
+| `skills/clay-news-trigger/` | Funding, executive hires, product launches, expansions — outreach timing events |
+| `skills/clay-website-visitor/` | Deanonymize website visitors — IP to company + buyer contact |
+
+### Account-Based Marketing
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-account-research/` | ABM account research — buying committee, engagement strategy, account tier |
+
+### Personalization & Sequencing
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-personalize/` | AI first lines, subject lines, and LinkedIn notes from enriched data |
+| `skills/clay-sequence-router/` | Multi-signal routing — sequence assignment, rep routing, send timing |
+| `skills/clay-suppression-check/` | Validate against opt-out, DNC, competitor, and customer lists before any send |
+| `skills/clay-reply-classify/` | Classify inbound replies — interested/objection/unsubscribe + recommended next action |
+
+### CRM & Data Ops
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-crm-sync/` | Enrich and write back to Salesforce/HubSpot CRM records |
+| `skills/clay-data-hygiene/` | Normalize titles, clean company names, validate emails, flag duplicates |
+
+### Post-Sale & Expansion
+
+| Skill | Use Case |
+|-------|----------|
+| `skills/clay-expansion-signals/` | Detect upsell/expansion readiness — team growth, usage limits, funding |
+| `skills/clay-renewal-research/` | Pre-renewal account intelligence — health, champion stability, competitive risk |
 
 ### Install all skills at once
 

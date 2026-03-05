@@ -224,19 +224,58 @@ The human user must configure the Clay table:
    - Body: Map the enriched columns you want returned to the agent
 6. The callback listener receives the POST and returns it to the waiting `clay fire --wait` call
 
-## GTM Use Case Skills
+## GTM Use Case Skills (21 total)
 
-Each skill is a detailed `SKILL.md` in the `skills/` folder:
+Each skill is a detailed `SKILL.md` in the `skills/` folder with full command examples, expected output, Clay table setup steps, and `jq` patterns.
 
+### Prospecting
+| Skill | When to use |
+|-------|-------------|
+| `clay-prospect-list` | Build a list from ICP filters (industry, size, title, tech) |
+| `clay-lookalike` | Find lookalikes from your best customer domains |
+| `clay-champion-track` | Monitor champions who left customers — highest-converting signal |
+
+### Enrichment
 | Skill | When to use |
 |-------|-------------|
 | `clay-enrich-lead` | You have a LinkedIn URL and need full profile data |
 | `clay-find-email` | You need a verified work email before outreach |
 | `clay-company-research` | You need to qualify or research a target account |
-| `clay-icp-score` | You need to know if a lead is worth pursuing |
-| `clay-job-change` | You want to catch job change buying signals |
-| `clay-outbound-prep` | Full prep pipeline — enrich + email + score + first-line in one shot |
-| `clay-account-research` | ABM — buying committee, triggers, engagement strategy |
+| `clay-outbound-prep` | Full pipeline — enrich + email + score + AI first-line in one shot |
+
+### Signals & Triggers
+| Skill | When to use |
+|-------|-------------|
+| `clay-icp-score` | Score a lead for ICP fit (A/B/C/D tier) |
+| `clay-job-change` | Detect job changes and hiring surges |
+| `clay-intent-data` | Check G2/Bombora intent — who is evaluating your category |
+| `clay-news-trigger` | Funding, hires, product launches — find the right outreach moment |
+| `clay-website-visitor` | Deanonymize website visitors — IP to company + buyer contact |
+
+### ABM
+| Skill | When to use |
+|-------|-------------|
+| `clay-account-research` | Buying committee, engagement strategy, multi-thread account plan |
+
+### Personalization & Sequencing
+| Skill | When to use |
+|-------|-------------|
+| `clay-personalize` | Generate AI first lines, subjects, LinkedIn notes from enriched data |
+| `clay-sequence-router` | Decide which sequence, rep, and send time for a lead |
+| `clay-suppression-check` | Check opt-out/DNC lists before any outreach |
+| `clay-reply-classify` | Classify inbound replies + get next action |
+
+### CRM & Data Ops
+| Skill | When to use |
+|-------|-------------|
+| `clay-crm-sync` | Enrich and write back to Salesforce/HubSpot records |
+| `clay-data-hygiene` | Normalize, validate, and deduplicate CRM data |
+
+### Post-Sale
+| Skill | When to use |
+|-------|-------------|
+| `clay-expansion-signals` | Detect upsell readiness — growth, usage limits, funding |
+| `clay-renewal-research` | Pre-renewal intelligence — health, risk, champion stability |
 
 Install all skills: `npx skills add https://github.com/bcharleson/clay-cli`
 
