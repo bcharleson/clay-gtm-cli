@@ -5,7 +5,7 @@ Check a contact or list against opt-out, unsubscribe, and do-not-contact lists b
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name suppression-check \

@@ -5,7 +5,7 @@ Monitor companies for trigger events: new funding rounds, executive hires, produ
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name news-trigger \

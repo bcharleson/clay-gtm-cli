@@ -11,7 +11,7 @@ You have access to `clay`, a CLI tool for firing Clay.com webhook tables and rec
 
 ## Prerequisites
 
-- `clay-cli` installed globally: `npm install -g clay-cli`
+- `clay-cli` installed globally: `npm install -g clay-gtm-cli`
 - `cloudflared` installed (for callback listener): `brew install cloudflared` (macOS) or `apt install cloudflared` (Linux)
 - At least one Clay webhook table registered
 
@@ -290,13 +290,13 @@ Add to Claude Desktop, Cursor, or VS Code MCP settings:
   "mcpServers": {
     "clay": {
       "command": "npx",
-      "args": ["clay-cli", "mcp"]
+      "args": ["clay-gtm-cli", "mcp"]
     }
   }
 }
 ```
 
-This registers all clay-cli commands as MCP tools: `tables_add`, `tables_list`, `tables_get`, `fire`, `listen_start`, `usage_show`, etc.
+This registers all clay-gtm-cli commands as MCP tools: `tables_add`, `tables_list`, `tables_get`, `fire`, `listen_start`, `usage_show`, etc.
 
 ## Output
 

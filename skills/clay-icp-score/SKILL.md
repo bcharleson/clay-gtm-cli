@@ -5,7 +5,7 @@ Score a lead or account against your Ideal Customer Profile (ICP). Returns a fit
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name icp-score \

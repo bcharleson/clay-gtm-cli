@@ -5,7 +5,7 @@ Monitor existing customers for signals that indicate upsell and expansion readin
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name expansion-signals \

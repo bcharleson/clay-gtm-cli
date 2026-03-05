@@ -1,11 +1,11 @@
-# clay-cli
+# clay-gtm-cli
 
 **Clay.com in your terminal.** Fire webhooks, receive async enrichment callbacks, and track row limits — from a single command line.
 
 Agent-native CLI + MCP server. Built for humans, scripts, and AI agents.
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 ```
 
 ---
@@ -14,7 +14,7 @@ npm install -g clay-cli
 
 Clay.com is a powerful data enrichment and workflow platform. Tables are triggered via webhooks, process data through enrichment steps, and can return results via HTTP callbacks.
 
-**clay-cli** wraps this into a simple, scriptable interface:
+**clay-gtm-cli** wraps this into a simple, scriptable interface:
 
 - **Fire webhooks** — send any JSON payload to a Clay table
 - **Async callbacks** — wait for Clay to finish processing and receive enriched data back
@@ -26,7 +26,7 @@ Clay.com is a powerful data enrichment and workflow platform. Tables are trigger
 ## How It Works
 
 ```
-Agent/Script                    clay-cli                     Clay.com
+Agent/Script                    clay-gtm-cli                     Clay.com
      |                             |                            |
      |-- clay fire --wait -------->|                            |
      |                             |-- POST webhook URL ------->|
@@ -50,7 +50,7 @@ Agent/Script                    clay-cli                     Clay.com
 ### Step 1 — Install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 ```
 
 ### Step 2 — Install cloudflared (for async callbacks)
@@ -213,7 +213,7 @@ clay mcp
   "mcpServers": {
     "clay": {
       "command": "npx",
-      "args": ["clay-cli", "mcp"]
+      "args": ["clay-gtm-cli", "mcp"]
     }
   }
 }
@@ -225,7 +225,7 @@ Tools registered: `tables_add`, `tables_list`, `tables_get`, `tables_update`, `t
 
 ## Clay Table Setup (for the human)
 
-To make a Clay table work with clay-cli callbacks:
+To make a Clay table work with clay-gtm-cli callbacks:
 
 1. **Create a webhook table** in Clay.com
 2. **Set the trigger** to "Webhook"
@@ -233,7 +233,7 @@ To make a Clay table work with clay-cli callbacks:
 4. **Add enrichment steps** (Enrich Person, Find Email, Validate Email, etc.)
 5. **Add a final HTTP API step:**
    - Method: `POST`
-   - URL: Use the `_callback_url` column (auto-injected by clay-cli when using `--wait`)
+   - URL: Use the `_callback_url` column (auto-injected by clay-gtm-cli when using `--wait`)
    - Body: Map the enriched columns you want sent back
 
 That's it. The agent fires `clay fire <name> --data '...' --wait` and receives the enriched response.
@@ -325,7 +325,7 @@ ln -s $(pwd)/skills/clay-* ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/bcharleson/clay-cli.git
-cd clay-cli
+cd clay-gtm-cli
 npm install
 npm run dev -- tables list
 npm run build

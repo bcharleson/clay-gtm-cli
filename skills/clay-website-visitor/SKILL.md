@@ -5,7 +5,7 @@ Convert anonymous website visitors (IP addresses or visitor events) into identif
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name website-visitor \

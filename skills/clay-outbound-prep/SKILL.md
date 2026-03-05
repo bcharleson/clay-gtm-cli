@@ -7,7 +7,7 @@ This is the highest-value GTM workflow — one webhook fires, Clay runs the full
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name outbound-prep \

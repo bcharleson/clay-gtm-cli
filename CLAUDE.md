@@ -2,7 +2,7 @@
 
 ## Overview
 
-`clay-cli` is an agent-native CLI + MCP server for Clay.com webhook orchestration. It follows the same `CommandDefinition` architecture as `instantly-cli` and `ms365-cli`.
+`clay-gtm-cli` is an agent-native CLI + MCP server for Clay.com webhook orchestration. It follows the same `CommandDefinition` architecture as `instantly-cli` and `ms365-cli`.
 
 ## Tech Stack
 

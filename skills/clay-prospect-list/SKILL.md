@@ -7,7 +7,7 @@ Use this instead of manually building lists in Sales Navigator — the agent can
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name prospect-list \

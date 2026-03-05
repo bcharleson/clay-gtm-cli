@@ -5,7 +5,7 @@ Find and validate a professional's work email using Clay's waterfall enrichment 
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name find-email \

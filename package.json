@@ -1,7 +1,7 @@
 {
-  "name": "clay-cli",
+  "name": "clay-gtm-cli",
   "version": "0.1.0",
-  "description": "Clay.com in your terminal. Fire webhooks, receive async callbacks, track row limits. Agent-native CLI + MCP server.",
+  "description": "Clay.com in your terminal. Fire webhooks, receive async callbacks, track row limits. Agent-native CLI + MCP server for GTM engineers.",
   "type": "module",
   "bin": {
     "clay": "./dist/index.js"

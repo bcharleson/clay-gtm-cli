@@ -5,7 +5,7 @@ Enrich a company or prospect with third-party intent signals: G2 category resear
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name intent-data \

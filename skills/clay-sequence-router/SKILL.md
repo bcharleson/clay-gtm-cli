@@ -5,7 +5,7 @@ Evaluate a lead against multiple signals simultaneously and return the correct s
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name sequence-router \

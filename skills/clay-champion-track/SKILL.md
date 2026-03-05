@@ -5,7 +5,7 @@ Monitor your best customer contacts for job changes. When a champion moves to a 
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name champion-track \

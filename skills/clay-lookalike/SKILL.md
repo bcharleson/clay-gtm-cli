@@ -5,7 +5,7 @@ Takes your best customers as input and finds prospects that match the same profi
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name lookalike \

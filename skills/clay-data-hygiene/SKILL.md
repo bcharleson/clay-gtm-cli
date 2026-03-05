@@ -5,7 +5,7 @@ Normalize, deduplicate, and validate CRM data at scale. Fix malformed company na
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name data-hygiene \

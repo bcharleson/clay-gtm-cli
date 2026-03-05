@@ -5,7 +5,7 @@ Generate highly personalized email first lines, subject lines, and LinkedIn conn
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name personalize \

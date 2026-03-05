@@ -5,7 +5,7 @@ Enrich a company by domain or name to get employee count, industry, funding stag
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared
 clay tables add \
   --name company-research \

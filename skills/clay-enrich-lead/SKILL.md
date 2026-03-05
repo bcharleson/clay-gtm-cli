@@ -5,7 +5,7 @@ Enrich a person's LinkedIn profile to get full name, job title, company, locatio
 ## install
 
 ```bash
-npm install -g clay-cli
+npm install -g clay-gtm-cli
 brew install cloudflared       # macOS — needed for --wait callback
 clay tables add \
   --name enrich-lead \
