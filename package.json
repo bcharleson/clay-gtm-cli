@@ -1,0 +1,44 @@
+{
+  "name": "clay-cli",
+  "version": "0.1.0",
+  "description": "Clay.com in your terminal. Fire webhooks, receive async callbacks, track row limits. Agent-native CLI + MCP server.",
+  "type": "module",
+  "bin": {
+    "clay": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "clay",
+    "cli",
+    "mcp",
+    "webhook",
+    "ai-agent",
+    "enrichment",
+    "cloudflare"
+  ],
+  "author": "Brandon Charleson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcharleson/clay-cli.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "commander": "^14.0.3",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
