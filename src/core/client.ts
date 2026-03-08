@@ -36,9 +36,7 @@ export async function httpRequest<T = unknown>(opts: RequestOptions): Promise<T>
       clearTimeout(timer);
 
       if (response.ok) {
-        const text = await response.text();
-        if (!text) return {} as T;
-        return JSON.parse(text) as T;
+        return (await parseSuccessBody(response)) as T;
       }
 
       if (RETRY_STATUS_CODES.has(response.status) && attempt < MAX_RETRIES) {
@@ -70,6 +68,22 @@ export async function httpRequest<T = unknown>(opts: RequestOptions): Promise<T>
   }
 
   throw lastError ?? new WebhookError('Request failed after retries');
+}
+
+async function parseSuccessBody(response: Response): Promise<unknown> {
+  const text = await response.text();
+  if (!text) return {};
+
+  const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
+  if (contentType.includes('application/json')) {
+    return JSON.parse(text);
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
 }
 
 function sleep(ms: number): Promise<void> {
