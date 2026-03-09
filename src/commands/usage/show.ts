@@ -28,6 +28,7 @@ export const usageShowCommand: CommandDefinition = {
         remaining: usage.limit - usage.count,
         percentUsed: Math.round((usage.count / usage.limit) * 100),
         lastFired: usage.lastFired || null,
+        note: 'Local count only — use clay usage sync when remote tracking is available',
       };
     }
 
@@ -46,6 +47,9 @@ export const usageShowCommand: CommandDefinition = {
       };
     });
 
-    return { tables: result };
+    return {
+      tables: result,
+      note: 'Local count only — use clay usage sync when remote tracking is available',
+    };
   },
 };

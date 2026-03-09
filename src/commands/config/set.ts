@@ -20,8 +20,12 @@ export const configSetCommand: CommandDefinition = {
   },
 
   handler: async (input) => {
+    if (!input.callbackUrl) {
+      return { error: 'No values provided. Use --callback-url to set a value.' };
+    }
+
     const config = await loadGlobalConfig();
-    if (input.callbackUrl) config.callbackUrl = input.callbackUrl;
+    config.callbackUrl = input.callbackUrl;
     await saveGlobalConfig(config);
     return { success: true, config };
   },

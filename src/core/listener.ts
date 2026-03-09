@@ -2,6 +2,21 @@ import { createServer, type Server, type IncomingMessage, type ServerResponse } 
 import type { CallbackResult } from './types.js';
 
 const callbacks = new Map<string, CallbackResult>();
+const callbackTimestamps = new Map<string, number>();
+const CALLBACK_TTL_MS = 10 * 60 * 1000;
+const SWEEP_INTERVAL_MS = 60 * 1000;
+
+const sweepTimer = setInterval(() => {
+  const cutoff = Date.now() - CALLBACK_TTL_MS;
+  for (const [callbackId, storedAt] of callbackTimestamps.entries()) {
+    if (storedAt < cutoff) {
+      callbackTimestamps.delete(callbackId);
+      callbacks.delete(callbackId);
+    }
+  }
+}, SWEEP_INTERVAL_MS);
+
+sweepTimer.unref();
 
 function parseBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -64,6 +79,7 @@ async function handleRequest(req: IncomingMessage, res: ServerResponse): Promise
     };
 
     callbacks.set(callbackId, result);
+    callbackTimestamps.set(callbackId, Date.now());
     sendJson(res, 200, { success: true, id: callbackId });
     return;
   }
@@ -74,6 +90,7 @@ async function handleRequest(req: IncomingMessage, res: ServerResponse): Promise
       sendJson(res, 404, { waiting: true, id: callbackId });
       return;
     }
+    callbackTimestamps.delete(callbackId);
     callbacks.delete(callbackId);
     sendJson(res, 200, result);
     return;

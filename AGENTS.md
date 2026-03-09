@@ -283,20 +283,30 @@ Install all skills: `npx skills add https://github.com/bcharleson/clay-gtm-cli`
 
 ## MCP Configuration
 
-Add to Claude Desktop, Cursor, or VS Code MCP settings:
+The Clay MCP server runs over stdio and works in any project. Install once, then add to Claude Desktop, Cursor, or VS Code MCP settings.
+
+**1. Install the CLI (outside this repo):**
+
+```bash
+npm install -g clay-gtm-cli
+```
+
+**2. Add to global or project MCP config** (e.g. `~/.cursor/mcp.json` or your project’s `.cursor/mcp.json`):
 
 ```json
 {
   "mcpServers": {
     "clay": {
-      "command": "npx",
-      "args": ["clay-gtm-cli", "mcp"]
+      "command": "clay",
+      "args": ["mcp"]
     }
   }
 }
 ```
 
-This registers all clay-gtm-cli commands as MCP tools: `tables_add`, `tables_list`, `tables_get`, `fire`, `listen_start`, `usage_show`, etc.
+Using the `clay` binary (after global install) avoids `npx` and PATH issues in Cursor/IDE subprocesses. This registers all clay-gtm-cli commands as MCP tools: `tables_add`, `tables_list`, `tables_get`, `fire`, `listen_start`, `usage_show`, etc.
+
+**Inside this repo:** The project’s `.cursor/mcp.json` uses `node dist/index.js mcp` so the server runs from the local build without publishing. Run `npm run build` before using MCP in this workspace.
 
 ## Output
 

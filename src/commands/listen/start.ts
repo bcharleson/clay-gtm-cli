@@ -15,12 +15,12 @@ export const listenStartCommand: CommandDefinition = {
   examples: ['clay listen start', 'clay listen start --port 9876'],
 
   inputSchema: z.object({
-    port: z.coerce.number().min(1024).max(65535).default(0).describe('Port for local server (0 = random available)'),
+    port: z.coerce.number().min(1024).max(65535).default(3456).describe('Port for local server (default: 3456)'),
   }),
 
   cliMappings: {
     options: [
-      { field: 'port', flags: '-p, --port <number>', description: 'Local port (default: random)' },
+      { field: 'port', flags: '-p, --port <number>', description: 'Local port (default: 3456)' },
     ],
   },
 
@@ -32,7 +32,7 @@ export const listenStartCommand: CommandDefinition = {
       info('Skipping cloudflared tunnel. Starting local server only.');
     }
 
-    const { port, server } = await startCallbackServer(input.port || 0);
+    const { port, server } = await startCallbackServer(input.port);
 
     let tunnelUrl: string;
 

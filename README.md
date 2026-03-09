@@ -208,18 +208,24 @@ clay mcp
 
 ### Configure in Claude Desktop / Cursor
 
+Install globally, then add to MCP settings (global `~/.cursor/mcp.json` or a project’s `.cursor/mcp.json`):
+
+```bash
+npm install -g clay-gtm-cli
+```
+
 ```json
 {
   "mcpServers": {
     "clay": {
-      "command": "npx",
-      "args": ["clay-gtm-cli", "mcp"]
+      "command": "clay",
+      "args": ["mcp"]
     }
   }
 }
 ```
 
-Tools registered: `tables_add`, `tables_list`, `tables_get`, `tables_update`, `tables_remove`, `tables_reset`, `fire`, `listen_start`, `listen_status`, `usage_show`, `usage_sync`, `config_set`, `config_get`.
+Using `clay` (after global install) avoids npx/PATH issues in IDE subprocesses. Tools registered: `tables_add`, `tables_list`, `tables_get`, `tables_update`, `tables_remove`, `tables_reset`, `fire`, `listen_start`, `listen_status`, `usage_show`, `usage_sync`, `config_set`, `config_get`.
 
 ---
 

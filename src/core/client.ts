@@ -1,4 +1,5 @@
 import { WebhookError } from './errors.js';
+import { CLI_VERSION } from './version.js';
 
 const DEFAULT_TIMEOUT_MS = 30_000;
 const MAX_RETRIES = 3;
@@ -26,7 +27,7 @@ export async function httpRequest<T = unknown>(opts: RequestOptions): Promise<T>
         method,
         headers: {
           'Content-Type': 'application/json',
-          'User-Agent': 'clay-cli/0.1.0',
+          'User-Agent': `clay-cli/${CLI_VERSION}`,
           ...headers,
         },
         body: body ? JSON.stringify(body) : undefined,

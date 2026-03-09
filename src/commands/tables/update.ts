@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import type { CommandDefinition } from '../../core/types.js';
 import { updateTable } from '../../core/config.js';
+import { syncTableUsageLimit } from '../../core/usage.js';
 
 export const tablesUpdateCommand: CommandDefinition = {
   name: 'tables_update',
@@ -41,6 +42,10 @@ export const tablesUpdateCommand: CommandDefinition = {
     const updated = await updateTable(name, defined);
     if (!updated) {
       return { error: `Table "${name}" not found. Run "clay tables list" to see available tables.` };
+    }
+
+    if (defined.rowLimit !== undefined) {
+      await syncTableUsageLimit(name, defined.rowLimit);
     }
 
     return { success: true, table: updated };

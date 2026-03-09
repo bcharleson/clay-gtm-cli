@@ -70,6 +70,7 @@ export async function removeTable(name: string): Promise<boolean> {
   if (!store.tables[name]) return false;
   delete store.tables[name];
   await saveTables(store);
+  await deleteUsageEntry(name);
   return true;
 }
 
@@ -112,6 +113,22 @@ export async function incrementUsage(tableName: string, limit: number): Promise<
 export async function resetUsage(tableName: string, limit: number): Promise<void> {
   const store = await loadUsage();
   store.tables[tableName] = { count: 0, lastFired: '', limit };
+  await saveUsage(store);
+}
+
+export async function updateUsageLimit(tableName: string, limit: number): Promise<UsageEntry> {
+  const store = await loadUsage();
+  const entry = store.tables[tableName] ?? { count: 0, lastFired: '', limit };
+  entry.limit = limit;
+  store.tables[tableName] = entry;
+  await saveUsage(store);
+  return entry;
+}
+
+export async function deleteUsageEntry(tableName: string): Promise<void> {
+  const store = await loadUsage();
+  if (!store.tables[tableName]) return;
+  delete store.tables[tableName];
   await saveUsage(store);
 }
 

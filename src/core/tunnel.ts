@@ -20,6 +20,18 @@ export function startTunnel(localPort: number): Promise<string> {
       }
     }, TUNNEL_TIMEOUT_MS);
 
+    const cleanupHandlers = () => {
+      process.removeListener('exit', killChild);
+      process.removeListener('SIGINT', killChild);
+      process.removeListener('SIGTERM', killChild);
+    };
+
+    const killChild = () => {
+      if (!child.killed) {
+        child.kill();
+      }
+    };
+
     function scanForUrl(data: Buffer): void {
       const text = data.toString();
       const match = text.match(TUNNEL_URL_REGEX);
@@ -37,6 +49,7 @@ export function startTunnel(localPort: number): Promise<string> {
       if (!resolved) {
         resolved = true;
         clearTimeout(timeout);
+        cleanupHandlers();
         if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
           reject(
             new ListenerError(
@@ -53,6 +66,7 @@ export function startTunnel(localPort: number): Promise<string> {
     });
 
     child.on('close', (code) => {
+      cleanupHandlers();
       if (!resolved) {
         resolved = true;
         clearTimeout(timeout);
@@ -60,8 +74,8 @@ export function startTunnel(localPort: number): Promise<string> {
       }
     });
 
-    process.on('exit', () => child.kill());
-    process.on('SIGINT', () => child.kill());
-    process.on('SIGTERM', () => child.kill());
+    process.once('exit', killChild);
+    process.once('SIGINT', killChild);
+    process.once('SIGTERM', killChild);
   });
 }
