@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "clay": {
+      "command": "node",
+      "args": ["dist/index.js", "mcp"]
+    }
+  }
+}

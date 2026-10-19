@@ -90,6 +90,13 @@ Write URL to clay config automatically so `clay config get` shows it.
 
 ---
 
+## Blocked / Waiting on Clay
+
+### 9. Credit usage tracking per table
+Clay has no public API for credit balances or per-row credit costs. Credits are only visible in the UI dashboard (Settings > Credit Usage). Once Clay ships a `GET /v3/account/credits` endpoint or includes credit metadata in callback responses, add `creditsPerRow` to table config and track spend as `rows × creditsPerRow`. See: https://community.clay.com/x/feedback/3kttx17q2ugr/request-for-api-endpoint-to-monitor-account-credit
+
+---
+
 ## Skills Gaps
 
 ### Add clay-setup skill (new)
